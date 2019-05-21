@@ -1,7 +1,9 @@
-<h1> <%= @song.name %> </h1>
+<label> Song Name </label>
+ <input type="text" name="Name"> </br>
 
-<a href="/artists/<%= @song.artist.slug %>"> <%= @song.artist.name %> </a>
+ <label> Genres </label>
+ <% Genre.all.each do |genre| %>
+   <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+ <% end %>
 
-<% @song.genres.each do |genre| %>
-  <a href="/genres/<%= genre.slug %>"><%= genre.name %> </a>
-<% end %>
+ <input type="submit" value="Create">
