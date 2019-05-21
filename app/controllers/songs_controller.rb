@@ -9,6 +9,10 @@ class SongsController < ApplicationController
    erb :'songs/show'
   end
 
+  get '/songs/new' do
+    erb :'/songs/new'
+  end
+
   post '/songs' do
     @song = Song.create(:name => params["Name"])
     @song.artist = Artist.find_or_create_by(:name => params["Artist Name"])
